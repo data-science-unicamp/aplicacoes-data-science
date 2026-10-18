@@ -1,0 +1,21 @@
+# Tema inspirado no Ocean do Gradio: verde-esmeralda com azul-céu,
+# fonte IBM Plex Sans e cantos arredondados.
+# Sem "base" definido, o usuário continua escolhendo claro/escuro no menu.
+
+[theme]
+font = "IBM Plex Sans:https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap, sans-serif"
+baseRadius = "large"
+
+[theme.light]
+primaryColor = "#059669"
+linkColor = "#0284c7"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f0fdfa"
+textColor = "#27272a"
+
+[theme.dark]
+primaryColor = "#10b981"
+linkColor = "#38bdf8"
+backgroundColor = "#0f0f11"
+secondaryBackgroundColor = "#18181b"
+textColor = "#f4f4f5"

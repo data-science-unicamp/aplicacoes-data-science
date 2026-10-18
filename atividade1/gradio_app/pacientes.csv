@@ -1,0 +1,9 @@
+timestamp,nome,data_nascimento,idade,sexo,nome_mae,telefone,convenio,prioridade,motivo
+2026-10-18 11:02:14,Ana Paula Ferreira,14/03/1988,38,Feminino,Maria José Ferreira,(11) 98234-5671,Unimed,2,Dor lombar há 2 semanas. Piora no fim do dia. Trabalha sentada.
+2026-10-18 11:10:39,Carlos Eduardo Souza Lima,02/11/1979,46,Masculino,Teresa Souza Lima,(11) 99187-4402,Bradesco Saúde,3,Pressão 16x10 medida na farmácia. Dor de cabeça na nuca.
+2026-10-18 11:19:05,Juliana Martins Rocha,27/07/1996,30,Feminino,Sandra Martins Rocha,(11) 98812-3390,Particular,1,Check-up anual.
+2026-10-18 11:27:52,Rafael Oliveira Santos,19/01/1992,34,Masculino,Cláudia Oliveira Santos,(11) 99654-2218,SulAmérica,4,Febre de 39 há 3 dias. Tosse e dor ao respirar fundo.
+2026-10-18 11:36:17,Fernanda Alves Pereira,08/05/1983,43,Feminino,Lúcia Alves Pereira,(11) 98476-1053,Unimed,2,Retorno para mostrar exames hormonais.
+2026-10-18 11:44:30,Marcos Vinícius Ribeiro,30/12/1972,53,Masculino,Aparecida Ribeiro,(11) 99723-8840,Outro,5,Dor no peito e braço esquerdo há 1 hora. Diabético.
+2026-10-18 11:53:44,Beatriz Costa Nogueira,21/10/2000,25,Feminino,Renata Costa Nogueira,(11) 98345-6127,Particular,3,Crise de enxaqueca desde ontem.
+2026-10-18 12:06:38,Paulo Augusto de Castro,10/07/1971,55,Masculino,Maria Augusta de Castro,(11) 97781-3402,Bradesco Saúde,3,Falta de ar moderada  há 2 dias com dificuldade subir escadas.
