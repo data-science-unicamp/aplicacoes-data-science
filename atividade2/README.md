@@ -16,6 +16,8 @@ evidencias/         # prints das telas e tabelas
 ## Configuração
 
 1. Crie o banco executando `sql/schema.sql` no SQL Editor do Supabase.
+   Opcional: execute `sql/seed.sql` para carregar dados sintéticos (35 clientes e 58 OS fictícios,
+   com datas relativas ao dia da execução). **Atenção:** o seed apaga os dados existentes.
 2. Em *Integrations → Data API*, adicione `aplicacoes_data_science_atividade2` aos **Exposed schemas** e salve.
 3. Copie `.env.example` para `.env` e preencha:
    - `SUPABASE_URL` e `SUPABASE_KEY` (chave publishable/anon, em *Project Settings → API Keys*)
