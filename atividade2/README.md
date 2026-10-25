@@ -28,8 +28,12 @@ Com [uv](https://docs.astral.sh/uv/):
 
 ```bash
 uv run app_gradio.py
+uv run streamlit run app_streamlit.py
 ```
 
-Ou com pip: `pip install -r requirements.txt` e `python app_gradio.py`.
+Ou com pip: `pip install -r requirements.txt`, depois `python app_gradio.py` e `streamlit run app_streamlit.py`.
 
-O Gradio abre em http://localhost:7860 e, com `share` ligado, imprime um link `gradio.live` para abrir no celular.
+- **Gradio** (http://localhost:7860): abertura de OS no balcão. Com `share` ligado, imprime um link `gradio.live` para abrir no celular.
+- **Streamlit** (http://localhost:8501): painel do gerente com abas Consultar (filtros na barra lateral e exportação CSV), Cadastrar, Editar/Excluir (com confirmação) e Indicadores.
+
+O Streamlit lê as credenciais de `.streamlit/secrets.toml`, se existir, ou do `.env`.
