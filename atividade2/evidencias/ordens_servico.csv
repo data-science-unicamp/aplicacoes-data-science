@@ -1,0 +1,6 @@
+﻿OS;Status;Cliente;E-mail;Celular;Endereço;Modelo;Problema;Abertura;Atualização
+60;Aberto;Mário dos Santos;mario.santos@exemplo.com.br;11987654433;Rua da Glória, 462 - Jd. Regina, São Paulo/SP;Notebook Asus V16;Equipamento desliga automaticamente após funcionar por 15min.;2026-10-25 18:47:12.607974;2026-10-25 18:47:12.607974
+56;Aberto;Isabela Vieira;isabela.vieira@exemplo.com.br;11942391044;Av. Washington Luís, 909 - Campo Belo, São Paulo/SP;"Monitor Samsung 27"" Odyssey G5";Monitor não liga, só pisca a luz de standby.;2026-10-24 10:27:33.637358;2026-10-24 10:27:33.637358
+55;Aberto;Caio Costa Ferreira;caio.ferreira@exemplo.com.br;11972877084;Rua Itapura, 2408 - Tatuapé, São Paulo/SP;Notebook Positivo Motion;Conector de carga com mau contato.;2026-10-23 20:17:57.637358;2026-10-23 20:17:57.637358
+53;Aberto;Henrique Gomes;henrique.gomes@mail-exemplo.com;11994889639;Av. Brigadeiro Faria Lima, 1951 - Pinheiros, São Paulo/SP;Notebook Acer Aspire 5;Bateria não segura carga, desliga ao tirar da tomada.;2026-10-22 03:58:45.637358;2026-10-22 03:58:45.637358
+52;Aberto;Camila Martins Ribeiro;camila.ribeiro@mail-exemplo.com;11997171856;Rua Pamplona, 2114 - Jardim Paulista, São Paulo/SP;Impressora HP DeskJet 2774;Impressora puxa várias folhas de uma vez.;2026-10-21 20:32:21.637358;2026-10-21 20:32:21.637358
