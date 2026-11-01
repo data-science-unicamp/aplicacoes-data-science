@@ -11,5 +11,5 @@ for r in results:
     for box in r.boxes:
         c = int(box.cls)
         xc, yc, w, h = box.xywhn[0].tolist()
-        print(f"classe: {c} ({model.names[c]}) | confiança: {float(box.conf):.3f} | x_centro: {xc:.3f} | "
-              f"y_centro: {yc:.3f} | largura: {w:.3f} | altura: {h:.3f}")
+        print(f"classe: {c} ({model.names[c]}) | confiança: {float(box.conf):.3f}")
+        print(f"  x_centro: {xc:.3f} | y_centro: {yc:.3f} | largura: {w:.3f} | altura: {h:.3f}")
