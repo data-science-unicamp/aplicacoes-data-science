@@ -1,4 +1,4 @@
-# Atividade 3 — Detecção de objetos com YOLO11
+# Atividade 3: Detecção de objetos com YOLO11
 
 Detector de resíduos recicláveis treinado com a biblioteca Ultralytics (`yolo11n.pt`, 50 épocas, imgsz 640)
 no Google Colab com GPU T4.
