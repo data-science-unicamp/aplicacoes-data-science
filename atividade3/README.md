@@ -12,3 +12,9 @@ no Google Colab com GPU T4.
 - `ATIVIDADE AULA 3.pdf` e `XADREZ3.ipynb`: enunciado e notebook de exemplo do professor.
 
 A chave do Roboflow fica nos Secrets do Colab (`ROBOFLOW_API_KEY`) e não aparece no código.
+
+## Resultado
+
+50 épocas em 34 min na T4. Na validação: mAP50 0,920 e mAP50-95 0,855. A pior classe é `food-wrapper`
+(mAP50 0,784), a que tem menos exemplos. O modelo treinado está em `best.pt`, o relatório em
+`Relatorio_LuisBender.docx` e os gráficos e detecções em `evidencias/`.
