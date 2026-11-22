@@ -9,8 +9,8 @@ Uma foto (ou a webcam) de uma mesa com moedas brasileiras vira o valor total em 
     repositório; para refazer os recortes, baixe-as pelos links para `originais/`.
   - `gerar_dataset.py` cola os recortes sobre fundos de mesa (madeira, papel, tecido, cor lisa), com o
     diâmetro real de cada moeda, rotação, leve inclinação, sombra, brilho, luz desigual, ruído e desfoque.
-    Moedas podem encostar, mas não se cobrem. Gera 100 imagens com 5 a 40 moedas cada (70 de treino,
-    20 de validação, 10 de teste) em `dataset/`, no formato YOLO, com classes por valor e face
+    Moedas podem encostar, mas não se cobrem. Gera 200 imagens com 5 a 40 moedas cada (140 de treino,
+    40 de validação, 20 de teste) em `dataset/`, no formato YOLO, com classes por valor e face
     (`5c_valor`, `5c_efigie`, ..., `1real_efigie`). Como o programa sabe onde pôs cada moeda, as caixas e
     o total em reais são exatos.
 - **`moedas.ipynb`:** gera o dataset e faz o resto no Google Colab com GPU T4.
@@ -20,7 +20,7 @@ Uma foto (ou a webcam) de uma mesa com moedas brasileiras vira o valor total em 
   - Parte B: o YOLO localiza, cada moeda é recortada e um ViT (`google/vit-base-patch16-224-in21k`)
     com fine-tuning classifica o recorte.
   - Avaliação: mAP, matriz de confusão, acurácia por moeda, erro médio no total em reais e tempo por imagem,
-    nas 10 imagens de teste. O limiar `conf` de cada solução é escolhido pelo menor erro no total no
+    nas 20 imagens de teste. O limiar `conf` de cada solução é escolhido pelo menor erro no total no
     conjunto de validação.
 - **`uso.py`:** soma as moedas de uma foto (`python uso.py foto.jpg`) ou da webcam (`python uso.py`).
 - `Atividade AULA 4.pdf`: enunciado.

@@ -6,9 +6,9 @@ import glob, os, random
 import cv2
 import numpy as np
 
-# Limites do enunciado: no mínimo 60 imagens (recomendado 100), de 5 a 40 moedas por imagem,
+# Limites do enunciado: no mínimo 60 imagens (recomendado 100 ou mais), de 5 a 40 moedas por imagem,
 # divididas em treino (70%), validação (20%) e teste (10%)
-IMAGENS = {"train": 70, "valid": 20, "test": 10}
+IMAGENS = {"train": 140, "valid": 40, "test": 20}
 MIN_MOEDAS, MAX_MOEDAS = 5, 40
 LARGURA, ALTURA = 1280, 960
 
