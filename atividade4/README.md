@@ -20,10 +20,10 @@ Uma foto (ou a webcam) de uma mesa com moedas brasileiras vira o valor total em 
   foto real é usada no treino.
 - **`moedas.ipynb`:** gera o dataset e faz o resto no Google Colab com GPU T4.
   [Abrir no Colab](https://colab.research.google.com/github/data-science-unicamp/aplicacoes-data-science/blob/main/atividade4/moedas.ipynb)
-  - Parte A: dois `yolo11s` com fine-tuning, um com classe por valor e face e outro com classe por valor
+  - Parte A: dois `yolo11s` com transfer learning por fine-tuning, um com classe por valor e face e outro com classe por valor
     (`10c`), gerado a partir das mesmas caixas.
   - Parte B: o YOLO localiza, cada moeda é recortada e um ViT (`google/vit-base-patch16-224-in21k`)
-    com fine-tuning classifica o recorte.
+    com transfer learning por fine-tuning classifica o recorte.
   - Avaliação: mAP, matriz de confusão, acurácia por moeda, erro médio no total em reais e tempo por imagem,
     nas 20 imagens de teste sintéticas e nas 10 fotos reais. O limiar `conf` de cada solução é escolhido pelo menor erro no total no
     conjunto de validação.
