@@ -1,6 +1,6 @@
 # Fontes das fotos reais
 
-As 13 fotos desta pasta (10 em `teste/`, 3 em `demo/`) são do Brazilian Coin Detection Dataset, sem alteração;
+As 231 fotos desta pasta (10 em `teste/`, 3 em `demo/`, 178 em `treino/` e 40 em `valid/`) são do Brazilian Coin Detection Dataset, sem alteração;
 os rótulos YOLO foram convertidos dos círculos anotados com `preparar_reais.py`.
 
 Luis Moneda, David Yonekura, Elloá Guedes, "Brazilian Coin Detection Dataset", IEEE Dataport, 29 mar. 2020,

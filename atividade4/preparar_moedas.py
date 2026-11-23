@@ -1,11 +1,15 @@
 # Recorta cada moeda das fotos em originais/ (Wikimedia Commons, domínio público ou CC0, baixadas à mão
 # pelos links de moedas_base/FONTES.md) e salva em moedas_base/<classe>_<n>.png com fundo transparente.
 # Roda uma vez só; o gerador usa os recortes.
+#
+# Por que recortar: o gerador do dataset sintético precisa de cada moeda isolada, com fundo transparente, para
+# colá-la sobre qualquer mesa. Recortes de fotos reais deixam a textura do metal mais realista que um desenho.
 import os, urllib.parse
 import cv2
 import numpy as np
 
-# foto -> classes das moedas da esquerda para a direita
+# foto -> classes das moedas da esquerda para a direita. Duas fotos de cada face (anos e moedas diferentes) dão
+# um pouco de variedade de desgaste e cor ao gerador.
 FOTOS = {
     "Brazil R$0.05 2010.jpg": ["5c_valor", "5c_efigie"],
     "5 Centavos (2022) - Vorderseite.jpg": ["5c_valor"],
@@ -23,31 +27,38 @@ FOTOS = {
     "Brasil coin 1 real.jpg": ["1real_valor"],
     "Brasil coin 1 real-2.jpg": ["1real_efigie"],
 }
-LADO = 300  # tamanho do recorte salvo, em pixels
+LADO = 300  # tamanho do recorte salvo, em pixels: maior que qualquer moeda no dataset, então o gerador só reduz
 
 os.makedirs("moedas_base", exist_ok=True)
 fontes = ["# Fontes das moedas\n", "Fotos do Wikimedia Commons (domínio público ou CC0), recortadas por `preparar_moedas.py`.\n"]
 
 for foto, classes in FOTOS.items():
     foto_inteira = cv2.imdecode(np.fromfile(os.path.join("originais", foto), np.uint8), cv2.IMREAD_COLOR)
+    # cv2.imdecode + np.fromfile em vez de cv2.imread porque os nomes têm acentos (Rückseite), que o imread não
+    # abre no Windows
     largura = foto_inteira.shape[1] // len(classes)  # foto com 2 moedas: uma em cada metade
 
     for k, classe in enumerate(classes):
         img = foto_inteira[:, k * largura:(k + 1) * largura]
-        # moeda = maior região que difere da cor do fundo (mediana da borda)
+        # A moeda é a maior região que difere da cor do fundo. A cor do fundo é a mediana da borda da foto, que
+        # nessas fotos de catálogo é sempre fundo. O limiar de Otsu separa automaticamente "perto" e "longe" dessa
+        # cor, e o fechamento morfológico tapa buracos de reflexo dentro da moeda.
         borda = np.concatenate([img[0], img[-1], img[:, 0], img[:, -1]])
         dist = np.linalg.norm(img.astype(float) - np.median(borda, axis=0), axis=2).astype(np.uint8)
         _, mascara = cv2.threshold(cv2.GaussianBlur(dist, (9, 9), 0), 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
         mascara = cv2.morphologyEx(mascara, cv2.MORPH_CLOSE, np.ones((25, 25), np.uint8))
         contornos, _ = cv2.findContours(mascara, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        # o menor círculo que envolve o maior contorno: moeda é redonda, então o círculo é a borda dela
         (cx, cy), r = cv2.minEnclosingCircle(max(contornos, key=cv2.contourArea))
         r *= 0.98  # tira a borda do fundo que sobra em volta da moeda
         m = int(r) + 1  # margem para o recorte não sair da foto
         ampla = cv2.copyMakeBorder(img, m, m, m, m, cv2.BORDER_REPLICATE)
         quadrado = ampla[int(cy - r) + m:int(cy + r) + m, int(cx - r) + m:int(cx + r) + m]
         quadrado = cv2.resize(quadrado, (LADO, LADO), interpolation=cv2.INTER_AREA)
+        # canal alfa circular: opaco dentro da moeda e transparente fora, para o gerador colar só a moeda
         alfa = np.zeros((LADO, LADO), np.uint8)
         cv2.circle(alfa, (LADO // 2, LADO // 2), LADO // 2 - 1, 255, -1, cv2.LINE_AA)
+        # numeração por classe (5c_valor_1, 5c_valor_2, ...), e a fonte de cada recorte vai para FONTES.md
         n = len([f for f in os.listdir("moedas_base") if f.startswith(classe + "_")]) + 1
         nome = f"{classe}_{n}.png"
         cv2.imwrite(os.path.join("moedas_base", nome), np.dstack([quadrado, alfa]))
