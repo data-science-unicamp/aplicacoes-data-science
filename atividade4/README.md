@@ -26,14 +26,14 @@ Uma foto (ou a webcam) de uma mesa com moedas brasileiras vira o valor total em 
   Os círculos anotados viram caixas YOLO com classes por valor.
 - **`moedas.ipynb`:** gera o dataset e faz o resto no Google Colab com GPU T4.
   [Abrir no Colab](https://colab.research.google.com/github/data-science-unicamp/aplicacoes-data-science/blob/main/atividade4/moedas.ipynb)
-  - Parte A: dois `yolo11s` com transfer learning por fine-tuning, um com classe por valor e face e outro com classe por valor
+  - Parte A: dois `yolo11s` com transfer learning, um com classe por valor e face e outro com classe por valor
     (`10c`), gerado a partir das mesmas caixas.
-  - 2a etapa de transfer learning por fine-tuning: o YOLO por valor treinado no sintético é ajustado com as fotos
+  - 2a etapa de transfer learning: o YOLO por valor treinado no sintético é ajustado com as fotos
     reais de treino somadas ao treino sintético (pesos do COCO → sintético → fotos reais). O sintético continua
     no treino porque traz 25c, 50c e 1 real, raros nas fotos reais. O modelo por face não passa por esta etapa,
     porque as fotos reais não têm a face anotada.
   - Parte B: o YOLO da 2a etapa localiza, cada moeda é recortada e um ViT (`google/vit-base-patch16-224-in21k`)
-    com transfer learning por fine-tuning, treinado com recortes do sintético e das fotos reais, classifica o
+    com transfer learning, treinado com recortes do sintético e das fotos reais, classifica o
     recorte.
   - Avaliação: mAP, matriz de confusão, acurácia por moeda, erro médio no total em reais e tempo por imagem,
     nas 20 imagens de teste sintéticas e nas 10 fotos reais. O limiar `conf` de cada solução é escolhido pelo menor erro no total na

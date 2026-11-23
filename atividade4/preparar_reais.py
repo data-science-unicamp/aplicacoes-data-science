@@ -3,7 +3,7 @@
 # por valor do notebook.
 #
 # Por que fotos reais: o modelo treinado só no dataset sintético erra muito em fotos de celular. As fotos de teste
-# medem esse erro, e as de treino e validação entram numa segunda etapa de transfer learning por fine-tuning.
+# medem esse erro, e as de treino e validação entram numa segunda etapa de transfer learning.
 #
 # Uso: python preparar_reais.py <pasta dataset/ do download> reais
 import json, glob, os, sys, shutil
